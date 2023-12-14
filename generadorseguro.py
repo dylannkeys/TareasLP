@@ -1,11 +1,7 @@
-#IMPORTAMOS LAS LIBRERIAS CON LAS QUE VAMOS A TRABAJAR EN LA ELABORACION DEL GENERADOR DE CONTRASEÑAS
-
 import random
 import string
 import sys
 import subprocess
-
-#AGREGAMOS LA OPCION DE "S" PARA CONTINUAR Y "N" PARA TERMIANAR EL PROCESO (EN EL CASO DE QUE NUESTRA OPCION SEA "S" VOLVEREMOS A REPRTIR TODO EL PROCESO)
 
 def ns(r):
     while r!="n" and r!="s":
@@ -19,16 +15,12 @@ def OKI(n):
         n=OKI(input("Caracter no valido: "))
     return n
 
-#EN EL DADO CASO DE QUE SE DIGITE UNA LETRA DIFERENTE A LA PEDIDA TENDREMOS UN BUCLE DEL SIGUIENTE MENSAJE
-
 def opt(o,l):
     while o not in l:
         o=input("Escriba solo una de las opciónes posibles: ")
     return o
 
 ops=sys.platform
-
-#ABRIMOS EL BUCLE QUE VA A CONTENER LA CANTIDAD DE MINUSCULAS, MAYUSCULAS Y NUMEROS QUE VAMOS APODER ELEGIR 
 
 while True:
     print("*******GENERADOR DE CONTRASEÑAS*******")
@@ -46,20 +38,18 @@ while True:
             and sum(c.isupper() for c in contra)>=mayus
             and sum(c.isdigit() for c in contra)>=numeros):
             break
-print("\nSU CONTRASEÑA: ",contra)
+        
+    print("\nSU CONTRASEÑA: ",contra)
     
-conti=ns(input("\n¿Desea continuar?(s/n): "))
+    conti=ns(input("\n¿Desea continuar?(s/n): "))
     if conti==("n"):
         break
-if ops=="win32" or ops=="linux2":
+    if ops=="win32" or ops=="linux2":
         if ops=="win32":
             import subprocess
             subprocess.call(["cmd.exe","/C","cls"])
         else:
             os.system("clear")
-else:
-    continue
-        
- 
-
-#CERRAMOS EL BUCLE
+    else:
+        continue
+    
