@@ -1,8 +1,10 @@
+#IMPORTAMOS LAS LIBRERIAS QUE VAMOS A UTILIZAR 
 import random
 import string
 import sys
 import subprocess
 
+#UTILIZAMOS FUNCIONES QUE VAN A APARECER EN NUESTRO GENERADOR
 def ns(r):
     while r!="n" and r!="s":
         r=input("Escriba solo \'n\' o \'s\' según su opción: ")
@@ -22,6 +24,8 @@ def opt(o,l):
 
 ops=sys.platform
 
+#ABRIMOS UN BUCLE PARA INTRODUCIR TODAS LAS OPCIONES QUE VA A TENER NUESTRO GENERADOR
+
 while True:
     print("*******GENERADOR DE CONTRASEÑAS*******")
     minus=OKI(input("Indique número mínimo de minusculas: "))
@@ -38,8 +42,11 @@ while True:
             and sum(c.isupper() for c in contra)>=mayus
             and sum(c.isdigit() for c in contra)>=numeros):
             break
-        
+
+    #CERRAMOS EL BUCLE    
     print("\nSU CONTRASEÑA: ",contra)
+
+    #IMPRIMIMOS LA CONTRASEÑA Y COMO SIGUIENTE PASO AGREGAMOS UNA OPCION DE CONTINUAR
     
     conti=ns(input("\n¿Desea continuar?(s/n): "))
     if conti==("n"):
@@ -53,3 +60,4 @@ while True:
     else:
         continue
     
+    #TERMINAMOS EL GENERADOR
